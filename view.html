@@ -1,0 +1,63 @@
+<style media="screen">
+  section {
+    background-color: #fff;
+    box-shadow: 0 1px 5px #ccc;
+    max-width: 400px;
+    padding: 30px;
+    margin: 100px auto;
+  }
+
+  h1 {
+    font-weight: 100;
+    font-size: 26px;
+    padding: 0 0 15px 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    border:none;
+    border-bottom: 1px solid #ccc;
+    display:block;
+    width:100%;
+    font-size:24px;
+    outline: none!important;
+  }
+
+  input[type="checkbox"] {
+    outline: none!important;
+    margin-right: 10px;
+  }
+
+  ul , li {
+    padding : 0;
+    margin : 0;
+    list-style: none;
+  }
+
+  ul {
+    margin-top: 30px;
+  }
+
+  li {
+    border-bottom: 1px solid #eee;
+    color:#555;
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  li.done {
+    text-decoration: line-through;
+    color:#bbb;
+  }
+</style>
+
+<section>
+  <h1>Todos</h1>
+  <input type="text"  placeholder="New todo..." #newtodo (keyup)="add($event,newtodo)" />
+  <ul>
+    <li *ng-for="#todo of todos" [class.done]="todo.done">
+      <input type="checkbox" (click)="markAsDone(todo)" [checked]="todo.done" /> {{todo.text}}
+    </li>
+  </ul>
+</section>
