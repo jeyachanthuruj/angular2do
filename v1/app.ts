@@ -1,32 +1,30 @@
-/// <reference path="typings/angular2/angular2.d.ts" />
 import { Component, View, NgFor, bootstrap } from 'angular2/angular2';
+import {TodoService} from 'TodoService';
+
+
+@Component({
+  selector : "todo-app",
+  appInjector : [TodoService]
+})
 
 @View({
   templateUrl : "view.html",
   directives: [NgFor]
 })
 
-@Component({
-  selector : "todo-app"
-})
-
 class TodoAppComponent {
-  todos : Array<string>;
 
-  constructor(){
-    this.todos = [{ text : "Go Home", done : true }]
+  //todoList : Array<Object>;
+  private todoService;
+
+  constructor( todoService : TodoService ){
+    this.todoService = todoService;
+    //this.todoList = todoService.get();
   }
 
-  add($event,newtodo){
-      if($event.which === 13){
-        this.todos.unshift({ text : newtodo.value, done : false });
-        newtodo.value = '';
-      }
-  }
 
-  markAsDone(todo){
-    todo.done = !todo.done;
-  }
+
+
 
 }
 

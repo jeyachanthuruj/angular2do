@@ -54,10 +54,10 @@
 
 <section>
   <h1>Todos</h1>
-  <input type="text"  placeholder="New todo..." #newtodo (keyup)="add($event,newtodo)" />
+  <input type="text"  placeholder="New todo..." #newtodo (keyup)="todoService.add($event,newtodo)" />
   <ul>
-    <li *ng-for="#todo of todos" [class.done]="todo.done">
-      <input type="checkbox" (click)="markAsDone(todo)" [checked]="todo.done" /> {{todo.text}}
+    <li *ng-for="#todo of todoService.get()" [class.done]="todo.done">
+      <input type="checkbox" (click)="todoService.markAsDone(todo)" [checked]="todo.done" /> {{todo.text}}
     </li>
   </ul>
 </section>
