@@ -61,3 +61,20 @@
     </li>
   </ul>
 </section>
+
+
+<hr/>
+
+<section>
+  <form #f="form" (submit)="submit(f.value)">
+    <input type="text" placeholder="Name" ng-control="name"/>
+    <br/>
+    <input type="text" placeholder="age" ng-control="age"/>
+    <br/>
+    <input type="text" placeholder="email" ng-control="email"/>
+
+    <br/>
+
+    <button type="submit">SUBMIT</button>
+  </form>
+</section>

@@ -10,12 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var angular2_2 = require('angular2/angular2');
 var TodoService_1 = require('TodoService');
 var TodoAppComponent = (function () {
     function TodoAppComponent(todoService) {
         this.todoService = todoService;
-        //this.todoList = todoService.get();
     }
+    TodoAppComponent.prototype.submit = function (value) {
+        console.log(value);
+    };
     TodoAppComponent = __decorate([
         angular2_1.Component({
             selector: "todo-app",
@@ -23,7 +26,7 @@ var TodoAppComponent = (function () {
         }),
         angular2_1.View({
             templateUrl: "view.html",
-            directives: [angular2_1.NgFor]
+            directives: [angular2_1.NgFor, angular2_2.formDirectives]
         }), 
         __metadata('design:paramtypes', [TodoService_1.TodoService])
     ], TodoAppComponent);

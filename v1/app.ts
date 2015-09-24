@@ -1,4 +1,5 @@
 import { Component, View, NgFor, bootstrap } from 'angular2/angular2';
+import { formDirectives, FormBuilder, ControlGroup } from 'angular2/angular2';
 import {TodoService} from 'TodoService';
 
 
@@ -9,7 +10,7 @@ import {TodoService} from 'TodoService';
 
 @View({
   templateUrl : "view.html",
-  directives: [NgFor]
+  directives: [NgFor, formDirectives]
 })
 
 class TodoAppComponent {
@@ -19,7 +20,11 @@ class TodoAppComponent {
 
   constructor( todoService : TodoService ){
     this.todoService = todoService;
-    //this.todoList = todoService.get();
+  }
+
+
+  submit(value){
+    console.log(value);
   }
 
 
